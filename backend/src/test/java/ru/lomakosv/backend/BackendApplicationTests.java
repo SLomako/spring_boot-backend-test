@@ -2,35 +2,31 @@ package ru.lomakosv.backend;
 
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import ru.lomakosv.backend.domain.Author;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static io.restassured.RestAssured.with;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.hasSize;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 class BackendApplicationTests {
 
-	@Test
-	void contextLoads() {
+	private static final String BASE_URI = "http://localhost:8080";
+	private static final String BASE_PATH = "/";
+
+	@BeforeAll
+	static void setup() {
+		RestAssured.baseURI = BASE_URI;
 	}
 
-	static {
-		RestAssured.baseURI = "http://localhost:8080";
-	}
-
-	private RequestSpecification spec =
-			with()
-					.baseUri("http://localhost:8080")
-					.basePath("/");
+	private final RequestSpecification spec = with()
+			.baseUri(BASE_URI)
+			.basePath(BASE_PATH);
 
 	@Test
 	void homeControllerTest() {

@@ -17,12 +17,12 @@ import java.util.stream.Collectors;
 @Controller
 public class HomeController {
 
-    private Map<String, Author> author = Map.of(
+    private final Map<String, Author> author = Map.of(
             "1", Author.builder().firstName("Dima").lastName("Дима").id("1").build(),
             "2", Author.builder().firstName("noDima").lastName("неДима").id("2").build()
     );
 
-    private Map<String, Book> book = Map.of(
+    private final Map<String, Book> book = Map.of(
             "1", Book.builder().author("Dima Дима").id("1").build(),
             "2", Book.builder().author("noDima неДима").id("2").build()
     );
