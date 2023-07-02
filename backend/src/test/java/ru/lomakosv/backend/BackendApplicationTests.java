@@ -49,8 +49,5 @@ class BackendApplicationTests {
 
 		assertEquals("[Author(id=1, firstName=Dima, lastName=Дима)]", filteredAuthorsId1.toString());
 		assertEquals("[Author(id=2, firstName=noDima, lastName=неДима)]", filteredAuthorsId2.toString());
-
-
 	}
-
 }
